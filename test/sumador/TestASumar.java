@@ -7,10 +7,10 @@ import org.junit.Test;
 public class TestASumar {
 
 	@Test
-    public void testUnaCifra() {
-        ASumar sumi = new ASumar("-5");
+    public void test() {
+        ASumar sumi = new ASumar("155");
         String resultado = sumi.mostrar();
-        assertEquals("-5 = -5",resultado );
+        assertEquals("1 + 3 = 4",resultado );
     }
 
 }
