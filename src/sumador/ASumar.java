@@ -21,9 +21,12 @@ public class ASumar {
 	 */
 	public String mostrar() {
         String numero = valor_inicial;
-        if (numero.length() == 2) {
+        
+        if (numero.length() == 1 || (numero.length() == 2 && numero.substring(0,1).equals("-")))
+        {
             return (numero + " = " + numero);
         }
+        
         return numero;
 	}
 
