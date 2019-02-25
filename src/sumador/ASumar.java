@@ -20,33 +20,38 @@ public class ASumar {
 	 * @return Número obtenido como resultado de la suma de los números que forman el valor_inicial.
 	 */
 	public String mostrar() {
-		String s = "";
-		
-		System.out.println("Valor inicial: "+valor_inicial);
-		System.out.println("Longitud: "+valor_inicial.length());
-		System.out.println("Valor 1: "+valor_inicial.substring(0, 1));
-		System.out.println("Valor 2: "+valor_inicial.substring(1, 2));
-		System.out.println("Valor 3: "+valor_inicial.substring(2, 3));
-		System.out.println("------------------------------");
-		
-        for (int i = 0; i < valor_inicial.length(); i++) {
-        	System.out.println("Vuelta del bucle nº: "+i);
-        	System.out.println("------------------------------");
+        String numero = valor_inicial;
+        
+        if (numero.length() == 1 || (numero.length() == 2 && numero.substring(0,1).equals("-")))
+        {
+            return (numero + " = " + numero);
         }
-		
-		return s;
+        else if( numero.length() > 1 )
+        {
+        	String suma = "";
+        	for (int i = 0; i < numero.length(); i++)
+        	{
+        		String digito = numero.substring(i, i+1);
+        		
+        		if(i == 0) { suma = suma + digito; }
+        		else { suma = suma + " + " + digito; }
+            }
+        	
+        	return (suma + " = " + total(numero));
+        }
+        
+        return numero;
 	}
 	
-	public int total() {
+	public int total(String numero) {
         int suma = 0;
-
-        for (int i = 0; i < valor_inicial.length(); i++) {
-            // Cadena de un dígito.
-            String digito = valor_inicial.substring(i, 1);
-            suma = suma + Integer.getInteger(digito);
-        }
-        System.out.println(suma);
-        return suma;
         
+        for (int i = 0; i < numero.length(); i++)
+        {
+            String digito = numero.substring(i, i+1);
+            suma = suma + Integer.parseInt(digito);
+        }
+        
+        return suma;
     }
 }
